@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "heic2jpg"
+version = "0.1.0"
+description = "Convert HEIC/HEIF photos to JPG from the command line"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["pillow", "pillow-heif"]
+
+[project.optional-dependencies]
+dev = ["pytest", "pyinstaller"]
+
+[project.scripts]
+heic2jpg = "heic2jpg.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
